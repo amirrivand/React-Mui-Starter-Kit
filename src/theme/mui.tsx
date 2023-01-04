@@ -1,5 +1,4 @@
 import { CacheProvider } from "@emotion/react";
-import { StyledEngineProvider } from "@mui/material";
 import React from "react";
 import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
@@ -13,11 +12,7 @@ const cache = createCache({
 });
 
 const MuiProvider = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<StyledEngineProvider injectFirst>
-			<CacheProvider value={cache}>{children}</CacheProvider>
-		</StyledEngineProvider>
-	);
+	return <CacheProvider value={cache}>{children}</CacheProvider>;
 };
 
 export default MuiProvider;
